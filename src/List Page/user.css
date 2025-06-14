@@ -1,0 +1,230 @@
+.user-navigate-header {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 200vh;
+    position: relative;
+    bottom: 30px;
+}
+
+.user-navigation{
+    display: flex;
+    align-items: center; 
+}
+.user-navigation>h2{
+    color: white;
+    margin-right: 10px;
+}
+.user-navigation>button{
+    color: white;
+    background-color: red;
+    border-radius: 53px;
+    height: 39px;
+    width: 13px;
+}
+.users-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.users-header h2 {
+  color: #333;
+  font-size: 24px;
+  margin: 0;
+}
+
+.users-actions {
+  display: flex;
+  gap: 15px;
+}
+
+
+.search-container input {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+.create-user-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.create-user-btn:hover {
+  background-color: #3a7bc8;
+}
+
+
+.users-table-container {
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.users-table th, 
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.users-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #555;
+}
+
+.users-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+
+.action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    width: 78px;
+    color: blue;
+}
+
+.action-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.action-btn.delete {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.action-btn.delete:hover {
+  background-color: #fdeaea;
+}
+
+.view-toggle button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 4px;
+      width: 40px;
+    height: 33px;
+}
+
+.view-toggle button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+  width: 40px;
+  height: 33px;
+}
+
+.view-toggle button.NotActive {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+  width: 40px;
+  height: 33px;
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.pagination-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.pagination-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.pagination-ellipsis {
+  padding: 0 6px;
+  color: #999;
+  user-select: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .users-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .users-actions {
+    width: 100%;
+  }
+  
+  .search-container input {
+    width: 100%;
+  }
+}
