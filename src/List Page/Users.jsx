@@ -30,12 +30,14 @@ const UsersTable = () => {
   const usersStatus = useSelector(getUsersStatus);
   const usersError = useSelector(getUsersError);
 
+  //This useEffect for fetching the users it fetch the data from the api page no 1
   useEffect(() => {
     if (usersStatus === "idle") {
       dispatch(fetchUsers(1));
     }
   }, [usersStatus, dispatch]);
 
+  //This useEffect for pagination process
   useEffect(() => {
     const buttons = [];
     for (let i = 1; i <= pages; i++) {
@@ -43,9 +45,12 @@ const UsersTable = () => {
         <button
           key={i}
           onClick={() => {
+            //store the current page in the use state
             setCurrentPage(i);
+            //pass the page number to the action
             dispatch(fetchUsers(i));
           }}
+          //when the current page i is equal to the page number, add the active class
           className={`pagination-btn ${currentPage === i ? "active" : ""}`}
         >
           {i}
@@ -55,9 +60,11 @@ const UsersTable = () => {
     setPageButtons(buttons);
   }, [pages, currentPage, dispatch]);
 
+  //This useEffect for updating the user
   useEffect(() => {
     if (allUsers.length > 0 && updateUser) {
       const mergedUsers = allUsers.map((user) =>
+        //This code when updatedUser is present ,old data and updated data is merged,if the id is not same it maintains the old data
         user.id == updateUser.id ? { ...user, ...updateUser } : user
       );
       setUsers(mergedUsers);
@@ -71,7 +78,7 @@ const UsersTable = () => {
     navigate(`/edit/${id}`);
   };
 
- // Delete Fuctionality
+  // Delete Fuctionality
   const handleDelete = (id) => {
     dispatch(deleteUser(id));
   };
@@ -99,11 +106,14 @@ const UsersTable = () => {
     }
   };
 
-  const filteredUsers = users.filter((user) =>
-    [user.first_name, user.last_name, user.email].some((field) =>
-      field.toLowerCase().includes(searchText.toLowerCase())
-    )
-  );
+  //Initially the search is empty,so it returns all the users,if the search text is not empty,then it filters the users
+  const filteredUsers = users.filter((user) => {
+    return (
+      user.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
+      user.last_name.toLowerCase().includes(searchText.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchText.toLowerCase())
+    );
+  });
 
   return (
     <>
@@ -169,7 +179,7 @@ const UsersTable = () => {
         {usersStatus === "loading" && <p>Loading users...</p>}
         {usersError && <p>Error: {usersError}</p>}
 
-        {view === "card" && <CardView edit={handleEdit} del={handleDelete}/>}
+        {view === "card" && <CardView edit={handleEdit} del={handleDelete} />}
 
         {view === "list" && (
           <div className="users-table-container">
